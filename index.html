@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    body {
+      padding: 100px;
+      color: #666;
+    }
+
+    .radio-wrap {
+      position: relative;
+      width: 120px;
+      height: 30px;
+      border: 1px solid #666;
+      border-radius: 60px;
+      overflow: hidden;
+    }
+
+    .radio-wrap .btn-list {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .radio-wrap .slider {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: blue;
+      border-radius: 60px;
+      overflow: hidden;
+    }
+
+    .radio-wrap .slider .btn-list {
+      width: 200%;
+      color: #fff;
+    }
+
+    .radio-wrap .slider {
+      transform: translateX(0);
+      transition: all 0.3s linear;
+    }
+
+    .radio-wrap .slider .btn-list {
+      margin-left: 0;
+      transition: all 0.3s linear;
+    }
+
+    .radio-wrap.on .slider {
+      transform: translateX(100%);
+    }
+
+    .radio-wrap.on .slider .btn-list {
+      margin-left: -100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="radio-wrap">
+    <ul class="btn-list">
+      <li class="btn">男</li>
+      <li class="btn">女</li>
+    </ul>
+    <div class="slider">
+      <ul class="btn-list">
+        <li class="btn">男</li>
+        <li class="btn">女</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $('.radio-wrap').click(function () {
+      $(this).toggleClass('on');
+    })
+  </script>
+</body>
+
+</html>
